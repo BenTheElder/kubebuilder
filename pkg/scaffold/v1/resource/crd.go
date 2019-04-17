@@ -22,7 +22,8 @@ import (
 
 	"strings"
 
-	"github.com/markbates/inflect"
+	"github.com/gobuffalo/flect"
+
 	"sigs.k8s.io/kubebuilder/pkg/scaffold/input"
 )
 
@@ -53,7 +54,7 @@ func (c *CRD) GetInput() (input.Input, error) {
 		c.Scope = "Cluster"
 	}
 	if c.Plural == "" {
-		c.Plural = strings.ToLower(inflect.Pluralize(c.Resource.Kind))
+		c.Plural = strings.ToLower(flect.Pluralize(c.Resource.Kind))
 	}
 
 	c.IfExistsAction = input.Error
